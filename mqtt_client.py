@@ -248,7 +248,7 @@ def main():
 
         # Report the device's temperature to the server by serializing it
         # as a JSON string.
-        payload = json.dumps({'deviceId':'rb1','timestamp': datetime.now(), 'temp': device.temp, 'humidity':device.humidity, 'ligth':device.ligth})
+        payload = json.dumps({'deviceId':'rb1','timestamp': datetime.datetime.now(), 'temp': device.temp, 'humidity':device.humidity, 'ligth':device.ligth})
         print('Publishing payload', payload)
         client.publish(mqtt_telemetry_topic, payload, qos=1)
         # Send events every second.
